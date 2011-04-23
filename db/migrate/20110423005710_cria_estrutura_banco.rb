@@ -1,11 +1,11 @@
 class CriaEstruturaBanco < ActiveRecord::Migration
 	def self.up
-		create_table :jogo do |t|
+		create_table :jogos do |t|
 			t.column :data, :date
 			t.column :qtde_respostas, :integer
 		end
 
-		create_table :resposta do |t|
+		create_table :respostas do |t|
 			t.column :id_pergunta, :integer
 			t.column :descricao, :string
 			t.column :correta, :boolean
@@ -32,8 +32,8 @@ class CriaEstruturaBanco < ActiveRecord::Migration
 	end
 
 	def self.down
-		drop_table :jogo
-		drop_table :resposta
+		drop_table :jogos
+		drop_table :respostas
 		drop_table :grupos
 		drop_table :perguntas
 		drop_table :participacoes
