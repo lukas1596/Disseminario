@@ -1,0 +1,13 @@
+<h1>Grupos</h1>
+<div id="lista_grupos">
+	<%= render :partial => "lista_grupos" %>
+</div>
+<%= form_for :grupo, :remote => :true, :url => {:action => :create} do |f| %>
+<table>
+	<tr>
+		<td><%=("Nome:"+f.text_field(:nome)).html_safe %></td>
+		<td><%=("Participantes:"+f.text_field(:nome_participantes)).html_safe %></td>
+		<td><%= f.submit 'Criar'%></td>
+	</tr>
+</table>
+<% end %>

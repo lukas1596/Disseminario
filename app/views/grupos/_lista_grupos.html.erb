@@ -1,0 +1,20 @@
+<table class='tabela-lista-registros'>
+	<thead>
+		<tr>
+			<td><%= 'Código' %></td>
+			<td><%= 'Nome do grupo' %></td>
+			<td><%= 'Participantes' %></td>
+			<td/>
+		</tr>
+	</thead>
+	<tbody>
+		<% @grupos.each do |grupo| %>
+		<tr>
+			<td><%= grupo.id %></td>
+			<td><%= grupo.nome %></td>
+			<td><%= grupo.nome_participantes %></td>
+			<td><%= link_to image_tag('cross.png'), {:action => :destroy, :id => grupo.id}, :remote => true%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
