@@ -32,6 +32,7 @@ class PerguntasController < CrudController
 		atualiza_lista
 	end
 	
+	# Importação do arquivo de perguntas e respostas de um grupo.
 	def importar_arquivo
 		ImportarArquivo.perguntas params[:importacao][:grupo], params[:importacao][:arquivo]
 	end
