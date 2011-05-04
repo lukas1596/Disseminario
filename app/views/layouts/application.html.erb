@@ -7,8 +7,38 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
-
+<table class="tabela-mestre">
+	<thead>
+	<tr >
+		<td>
+			<h1>Disseminário</h1>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<table>
+				<tr>
+					<td>
+						<%= link_to "Grupos", :controller => :grupos %>
+					</td>
+					<td>
+						<%= link_to "Perguntas (Cadastro)", :controller => :perguntas %>
+					</td>
+					<td>
+						<%= link_to "Perguntas (Importação de Arquivo)", :controller => :perguntas, :action => :importacao_arquivo %>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<%= yield %>
+			</td>
+		</tr>
+	</tbody>
+</table>
 </body>
 </html>

@@ -1,0 +1,10 @@
+<h1>Perguntas (Importação de Arquivo)</h1>
+<%= form_for :importacao, :remote => :true, :url => {:action => :importar_arquivo} do |f| %>
+<table>
+	<tr>
+		<td><%=("Grupo:"+f.collection_select(:grupo, Grupo.all, :id, :nome)).html_safe %></td>
+		<td><%=("Arquivo:"+f.text_field(:arquivo, :size => 120)).html_safe %></td>
+		<td><%= f.submit "Importar"%>
+	</tr>
+</table>
+<% end %>

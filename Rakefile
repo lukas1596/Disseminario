@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-SeminarioAlternativo::Application.load_tasks
+Disseminario::Application.load_tasks

@@ -1,0 +1,37 @@
+<h1>Perguntas</h1>
+<%= form_for :registro, :remote => :true, :url => {:action => :create} do |f| %>
+<table>
+	<tr>
+		<td><%=("Grupo:"+f.collection_select(:id_grupo, Grupo.all, :id, :nome)).html_safe %></td>
+	</tr>
+	<tr>
+		<td><%=("Pergunta:"+f.text_field(:descricao, :size => 60)).html_safe %></td>
+		<td><%= f.submit 'Criar'%></td>
+	</tr>
+	<tr>
+		<td colspan=4>
+			<table>
+				<tr>
+					<td colspan = 4>
+						Resposta
+					</td>
+				</tr>
+				<% (1..4).each do |i|%>
+					<tr>
+						<td><%=i%></td>
+						<td><%=f.text_field("respostas[#{i}][descricao]").html_safe %></td>
+					</tr>
+				<% end %>
+				<tr>
+					<td colspan=4>
+						<%= ("Resposta Correta:"+f.select(:resposta_correta, [1,2,3,4])).html_safe %>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<% end %>
+<div id="lista_perguntas">
+	<%= render :partial => "lista" %>
+</div>

@@ -1,7 +1,4 @@
 <h1>Grupos</h1>
-<div id="lista_grupos">
-	<%= render :partial => "lista" %>
-</div>
 <%= form_for :registro, :remote => :true, :url => {:action => :create} do |f| %>
 <table>
 	<tr>
@@ -11,3 +8,6 @@
 	</tr>
 </table>
 <% end %>
+<div id="lista_grupos">
+	<%= render :partial => "lista" %>
+</div>

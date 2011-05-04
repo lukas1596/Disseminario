@@ -1,0 +1,13 @@
+<h1>Respostas</h1>
+<div id="lista_respostas">
+	<%= render :partial => "lista" %>
+</div>
+<%= form_for :registro, :remote => :true, :url => {:action => :create} do |f| %>
+<table>
+	<tr>
+		<td><%=("Resposta:"+f.text_field(:descricao)).html_safe %></td>
+		<td><%=("Correta?:"+f.select(:correta?,[['Sim',true], ['Nao',false]])).html_safe %></td>
+		<td><%= f.submit 'Criar'%></td>
+	</tr>
+</table>
+<% end %>

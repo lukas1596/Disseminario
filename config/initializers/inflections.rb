@@ -14,7 +14,18 @@ ActiveSupport::Inflector.inflections do |inflect|
 	# mais complicada que a lingua inglesa, devemos especificar que alguns plurais não são apenas formados por a
 	# palavra e a letra S, como é o caso do modelo de "participacao", que pluralizado, na lingua inglesa, seria 
 	# "participacaos", especificamos aqui que o correto é "participacoes".
-
 	inflect.irregular('participacao', 'participacoes')
+	
+	# O Rails pluraliza 'quantum' para 'quanta'.. por isso 'quanta' não pluraliza...
+	# Então ele entende que 'pergunta' é plural de 'perguntum'.
+	#
+	# Ex.: (CONSOLE DO RAILS [executar "rails c" da raiz do aplicativo.])
+	# > 'pergunta'.pluralize
+	# => "pergunta" 
+	# > 'pergunta'.singularize
+	# => "perguntum" 
+	inflect.irregular('pergunta', 'perguntas')
+	inflect.irregular('resposta', 'respostas')
+	
 
 end

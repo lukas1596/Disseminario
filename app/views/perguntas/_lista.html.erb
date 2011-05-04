@@ -1,0 +1,30 @@
+<table class='tabela-lista-registros'>
+	<thead>
+		<tr>
+			<td><%= 'Grupo' %></td>
+			<td><%= 'Pergunta' %></td>
+			<td/>
+		</tr>
+	</thead>
+	<tbody>
+		<% @registros.each do |pergunta| %>
+		<tr>
+			<td><%= pergunta.grupo.nome %></td>
+			<td><%= pergunta.descricao %></td>
+			<td><%= link_to image_tag('cross.png'), {:action => :destroy, :id => pergunta.id}, :remote => true%></td>
+		</tr>
+		<% pergunta.respostas.each do |resposta| %>
+			<tr>
+				<td/>
+				<td>
+					<% if resposta.correta?  %>
+						<b><%= resposta.descricao%></b>
+					<% else %>
+						<%= resposta.descricao%>
+					<% end %>
+				<td>
+			</tr>
+		<% end %>
+		<% end %>
+	</tbody>
+</table>
